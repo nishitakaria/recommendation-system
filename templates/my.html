@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: black;
+  padding-left:20px;
+  outline: #4CAF50 solid 10px;
+}
+
+#editor {
+	align-content: center;
+    height:50%;
+    width:50%;
+    display:block;
+    padding-left: 100;
+}
+
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 625px;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+body {
+  background-image: url(https://media.ksat.com/photo/2019/03/20/san%20antonio%20threads%203_1553120835699.jpg_21602971_ver1.0_1280_720.jpg);
+   position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    opacity: 0.8;
+    filter:alpha(opacity=80);
+    z-index: -2;
+}
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+</style>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	<link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text|Merienda|Philosopher" rel="stylesheet">
+</head>
+<body>
+    
+
+ <header>
+  <h2>FASHION &nbsp RECOMMENDER</h2>
+</header>
+
+</br>
+
+		<form  action="{{ url_for('recommend')}}" method="POST">
+		<h1 style="background-color: #FFFF00" align="center">Please Select For Whom You Want To Buy</h1>
+     
+	</br>
+ <!-- <center>
+    <table cellpadding="30"><tr>
+      <td>
+  <div>
+  <input type="radio" name="radio" id="radio1" class="radio" value="Men"  checked/>
+  <label class='container'>Men</label>
+  </div>
+</td>
+<td>
+  <div>
+  <input type="radio" name="radio" id="radio2" class="radio" value="Women"/>
+  <label for="radio2">Women</label>
+  </div>
+</td></tr></table>
+</center>-->
+<div style="background: black;">
+<center>
+<label class="container"><h3 style="color: white;">Men</h3>
+  <input type="radio" checked="checked" name="radio" value="Men" id="radio1">
+  <span class="checkmark"></span>
+</label>
+<label class="container"><h3 style="color: white;">Women</h3>
+  <input type="radio" name="radio" value="Women" id="radio2">
+  <span class="checkmark"></span>
+</label>
+</center>
+</div>
+<br>
+	  <div style="text-align:center"> 
+		<input type="submit" class="btn-info" value="Submit" >
+	  </div>
+	</form>
+		
+	</div>
+</div>
+
+</body>
+</html>
+

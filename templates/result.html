@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Result</title>
+	<!-- <link rel="stylesheet" type="text/css" href="../static/css/styles.css"> -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	<link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text|Merienda|Philosopher|Rock+Salt" rel="stylesheet">
+	<style>
+	#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://media.ksat.com/photo/2019/03/20/san%20antonio%20threads%203_1553120835699.jpg_21602971_ver1.0_1280_720.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    opacity: 0.5;
+    filter:alpha(opacity=50);
+     z-index: -1;
+}
+header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+  padding-left:20px;
+  outline: 5px dotted black;
+}
+.sun {
+  padding: 70px;
+  border: 1px blue;
+  text-align: center;
+}
+	</style> 
+</head>
+<body>
+
+    <div id="background"></div>	 	
+	<header>
+  <h2>FASHION &nbsp RECOMMENDER</h2>
+</header>
+
+
+	<div class="back-img">
+		<h1  align="center"><big>BOOOM!!!!</big></br>Here is your history </h1>
+
+    {% for each in product %}
+
+
+    <h3>{{ each }}</h3><br>
+    
+
+    {% endfor %}
+    
+    <h2  align="center">You May Also Like</h2>
+    <h2  align="center">CLICK THE GREEN BUTTON IF YOU BOUGHT THE PRODUCT</h2>
+    <div class="sun">
+			<table border: 1px solid black;>
+        <tr>
+          <th>{{p}}</th>
+          <th>{{q}}</th>
+          <th>{{r}}</th>
+        </tr>
+
+        <tr>
+          <td><a href ="{{a}}" ><img src="{{x}}" style="width:50%;height:20%;"></a></td>
+          <td><a href ="{{b}}" ><img src="{{y}}" style="width:50%;height:20%;"></a></td>
+          <td><a href ="{{c}}" ><img src="{{z}}" style="width:50%;height:20%;"></a></td>
+        </tr>
+
+        <tr> 
+          <th><a href ="{{a}}" >Click to Buy</a></th>
+          <th><a href ="{{b}}" >Click to Buy</a></th>
+          <th><a href ="{{c}}" >Click to Buy</a></th>
+        </tr>
+
+        <tr>
+          <td>
+          <form action="{{url_for('update')}}", method="POST">
+            <input type="submit" class="btn-info" name="submit" value="{{l}}" style="color: green; background-color: green;" >
+          </form>
+          </td>
+          <td>
+          <form action="{{url_for('update')}}", method="POST">
+            <input type="submit" class="btn-info" name="submit" value="{{m}}" style="color: green; background-color: green;" >
+          </form>
+          </td>
+          <td>
+          <form action="{{url_for('update')}}", method="POST">
+            <input type="submit" class="btn-info" name="submit" value="{{n}}" style="color: green; background-color: green;" >
+          </form>
+          </td>
+
+      </table>
+            
+	</div>
+  <h1> Products recommended without profitability</h1>
+  {% for each in product1 %}
+
+
+    <h3>{{ each }}</h3><br>
+    
+
+    {% endfor %}
+</div>
+	
+</body>
+</html>
